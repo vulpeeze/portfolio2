@@ -3,6 +3,7 @@
   --secondaryColor: #fff;
 
   --borderColor: #c1c1c1;
+  --jobBorderColor: 0, 0, 0;
   
   --mainText: black;
   --secondaryText: #4b5156;
@@ -13,6 +14,7 @@
   --previewShadow: #f0ead6;
   
   --buttonColor: black;
+  --buttonTextColor: white;
 }
 
 /* #region General Settings */
@@ -33,6 +35,10 @@ h1, h2, h3, h4, h5, h6, strong {
 p, li, span, label, input, textarea {
   color: var(--secondaryText);
   font-family: "Roboto Mono", monospace;
+}
+
+p {
+  text-align: justify;
 }
 
 a {
@@ -228,6 +234,10 @@ h6 { font-size: 16px;}
   position: relative;
 }
 
+#preview-text {
+  margin-bottom: 0;
+}
+
 .corner {
   width: 7px;
   height: 7px;
@@ -270,15 +280,37 @@ h6 { font-size: 16px;}
   background-color: var(--previewShadow);
 }
 .social-links {
-  display: grid;
-  align-content: center;
   text-align: center;
-
 }
 #social_img {
   width: 100%;
   height: 300px;
   border: 1.5px solid red;
+}
+.job {
+  border-top: 5px solid rgba(var(--jobBorderColor), 0.25);
+  border-bottom: 5px solid rgb(var(--jobBorderColor));
+  background-color: var(--mainColor);
+  margin-bottom: 20px;
+}
+.job-title-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.job-image img{
+  max-width: 150px;
+  padding: 10px;
+}
+.job-info {
+  padding: 20px;
+}
+.job h4, .job h5, .job h6 {
+  margin: 0;
+  padding-top: 5px;
+}
+.job p {
+  padding: 0 20px;
 }
 /* #endregion */
 /* #region Projects */
@@ -317,6 +349,58 @@ h6 { font-size: 16px;}
 .portfolio-para {
   margin: 0;
 }
+
+.view-project, .view-github, .view-skills {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin: 0.3rem;
+  font-family: "Roboto Mono", monospace;
+}
+.view-project {
+  background-color: white;
+  color: black;
+}
+.view-github {
+  background-color: black;
+  color: white;
+}
+.view-skills {
+  background-color: var(--previewShadow);
+  border: 3px solid var(--borderColor);
+  color: var(--mainText);
+  cursor: pointer; }
+  .view-skills::after {
+    content: "\02795";
+    /* Unicode character for "plus" sign */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+.view-project:hover, .view-skills:hover {
+  background-color: var(--buttonColor);
+  color: white;
+}
+.view-github:hover {
+  background-color: var(--previewBg);
+  color: var(--mainText);
+}
+.active::after {
+  content: "\2796";
+  /* Unicode character for "minus" sign */ }
+
+.active {
+  background-color: var(--buttonColor);
+  color: white;
+}
+
+.skill-content {
+  padding: 0 2rem;
+  list-style-type: square;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out; }
 /* #endregion */
 /* #region Contact Form */
 #contact-form {
@@ -358,7 +442,7 @@ h6 { font-size: 16px;}
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
   .intro-wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -369,6 +453,9 @@ h6 { font-size: 16px;}
   }
   .right-column {
     justify-content: center;
+  }
+  .about-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 /* #endregion */
