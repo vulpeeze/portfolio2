@@ -329,7 +329,7 @@ h6 { font-size: 16px;}
   object-fit: cover;
 }
 .project-thumbnail:hover {
-  border: 5px solid yellow;
+  border: 5px solid rgb(var(--jobBorderColor));
 }
 .post {
   border: 1px solid var(--borderColor);
